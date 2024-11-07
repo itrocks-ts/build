@@ -1,5 +1,6 @@
 {
 	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
 		"declaration": true,
 		"lib": ["DOM", "ESNext"],
 		"module": "ESNext",
@@ -7,5 +8,5 @@
 		"strict": true,
 		"target": "ES2022"
 	},
-	"include": ["src/*", "demo/*"]
+	"include": ["demo", "prepare-module.ts", "src"]
 }

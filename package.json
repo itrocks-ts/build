@@ -8,6 +8,7 @@
 	},
 	"description": "Permanently apply javascript modifiers to your dynamic DOM.",
 	"devDependencies": {
+		"@types/node": "^22.9.0",
 		"typescript": "5.6"
 	},
 	"files": [
@@ -27,8 +28,8 @@
 	"repository": "https://github.com/itrocks-ts/build",
 	"scripts": {
 		"build": "tsc -p tsconfig.json",
-		"prepare": "cp src/build.d.ts ./ && cp src/build.js ./"
+		"prepare": "node prepare-module"
 	},
 	"type": "module",
-	"version": "0.0.1"
+	"version": "0.0.2"
 }
