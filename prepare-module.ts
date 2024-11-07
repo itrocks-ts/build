@@ -10,8 +10,7 @@ const destDir = '.';
 		const destPath = destDir + '/' + file
 		if (file.endsWith('.js')) {
 			const content = (await fs.readFile(srcPath, 'utf8'))
-				.replace(/import(.*)from\s+'..\/node_modules\/@itrocks\//g, "import$1 from '../")
-				.replace(/import(.*)from\s+'..\/node_modules\//g, "import$1 from '../../")
+				.replace(/import(.*)from\s+'..\/node_modules\/@itrocks\//g, "import$1from '../")
 			await fs.writeFile(destPath, content, 'utf8')
 		}
 		else if (file.endsWith('.d.ts')) {
