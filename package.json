@@ -28,8 +28,9 @@
 	"repository": "https://github.com/itrocks-ts/build",
 	"scripts": {
 		"build": "tsc -p tsconfig.json",
-		"prepare": "node prepare-module"
+		"prepare": "node ci/prepare-module"
 	},
 	"type": "module",
-	"version": "0.0.4"
+	"types": "./build.d.ts",
+	"version": "0.0.5"
 }
