@@ -8,5 +8,5 @@
 		"strict": true,
 		"target": "ES2022"
 	},
-	"include": ["ci", "demo", "src"]
+	"include": ["demo", "src"]
 }
