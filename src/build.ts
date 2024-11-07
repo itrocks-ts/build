@@ -1,4 +1,4 @@
-import { SortedArrayBy } from '../node_modules/@itrocks/sorted-array/esm/sorted-array.js'
+import { SortedArrayBy } from '../node_modules/@itrocks/sorted-array/sorted-array.js'
 
 export const ALWAYS = 'always'
 export const CALL   = 'call'
