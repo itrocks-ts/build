@@ -3,10 +3,13 @@ import { SortedArrayBy } from '../node_modules/@itrocks/sorted-array/sorted-arra
 export const ALWAYS = 'always'
 export const CALL   = 'call'
 
-type BuildElementCallback<E extends Element>      = (element: E) => void
-type BuildEventCall                               = typeof CALL
-type BuildEventCallback<E extends BuildEventType> = (this: Element, event: ElementEventMap[E]) => any
-type BuildEventType                               = keyof ElementEventMap
+type BuildEventCall = typeof CALL
+type BuildEventType = keyof GlobalEventHandlersEventMap
+
+type BuildElementCallback<E extends Element>
+	= (element: E) => any
+type BuildEventCallback<E extends Element, V extends BuildEventType>
+	= (this: E, event: GlobalEventHandlersEventMap[V]) => any
 
 class Callback
 {
@@ -71,37 +74,43 @@ const chainedSelectors = (selector: string[]) =>
 	return selectors
 }
 
-export type BuildEvent<E extends Element> = {
+export type BuildEvent<E extends Element, V extends BuildEventCall | BuildEventType> = {
 	args?:     any[],
-	callback:  BuildElementCallback<E> | BuildEventCallback<BuildEventType>,
-	type?:     BuildEventCall | BuildEventType,
+	callback:  V extends BuildEventType ? BuildEventCallback<E, V> : BuildElementCallback<E>,
+	type?:     V,
 	priority?: number,
 	selector?: string | string[]
 }
 
 export default build
 export function build<E extends Element>(callback: BuildElementCallback<E>): void
-export function build<E extends Element>(event: BuildEvent<E>): void
+export function build<E extends Element, V extends BuildEventCall | BuildEventType>(event: BuildEvent<E, V>): void
 export function build<E extends Element>(selector: string | string[], callback: BuildElementCallback<E>): void
-export function build<E extends Element>(selector: string | string[], type: BuildEventCall, callback: BuildElementCallback<E>): void
-export function build<E extends BuildEventType>(selector: string | string[], type: E, callback: BuildEventCallback<E>): void
 export function build<E extends Element>(
-	event:     BuildElementCallback<E> | BuildEvent<E> | string | string[],
-	type?:     BuildElementCallback<E> | BuildEventCall | BuildEventType,
-	callback?: BuildElementCallback<E> | BuildEventCallback<BuildEventType>
+	selector: string | string[],
+	type:     BuildEventCall,
+	callback: BuildElementCallback<E>
+): void
+export function build<E extends Element, V extends BuildEventCall | BuildEventType>(
+	selector: string | string[],
+	type:     V,
+	callback: V extends BuildEventType ? BuildEventCallback<E, V> : BuildElementCallback<E>
+): void
+export function build<E extends Element, V extends BuildEventCall | BuildEventType>(
+	event:     BuildElementCallback<E> | BuildEvent<E, V> | string | string[],
+	type?:     BuildElementCallback<E> | V,
+	callback?: V extends BuildEventType ? BuildEventCallback<E, V> : BuildElementCallback<E>
 ) {
 	if (typeof event === 'function') {
-		event = { callback: event }
+		event = { callback: event } as BuildEvent<E, V>
 	}
 	else if ((typeof event === 'string') || Array.isArray(event)) {
-		event = callback
-			? { callback, type, selector: event } as BuildEvent<E>
-			: { callback: type, selector: event } as BuildEvent<E>
+		event = (callback ? { callback, type, selector: event } : { callback: type, selector: event }) as BuildEvent<E, V>
 	}
 	if (!event.args)     event.args     = []
-	if (!event.type)     event.type     = CALL
 	if (!event.priority) event.priority = 1000
 	if (!event.selector) event.selector = ALWAYS
+	if (!event.type)     event.type     = CALL as V
 
 	event.priority = (event.priority * 1000000) + callbacks.length
 	event.selector = (typeof event.selector === 'string') ? [event.selector] : chainedSelectors(event.selector)
