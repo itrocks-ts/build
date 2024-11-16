@@ -8,12 +8,18 @@
 Apply JavaScript code to your dynamic DOM,
 automatically executed each time a new matching element is added.
 
+## Installation
+
+```bash
+npm i @itrocks/build
+```
+
 ## Usage
 
 To execute a function each time a new element is added
 to the [DOM](https://developer.mozilla.org/docs/Glossary/DOM):
 ```ts
-import build from '../node_modules/@itrocks/build/build.js'
+import build from './node_modules/@itrocks/build/build.js'
 build<HTMLAnchorElement>('a', anchor => console.log('DOM + anchor', anchor))
 ```
 This will display "DOM + anchor" in your console for every anchor already present in the DOM.
