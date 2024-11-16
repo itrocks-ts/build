@@ -19,13 +19,14 @@
 		"build.js"
 	],
 	"keywords": [
-		"web component",
 		"dom",
 		"event",
+		"it.rocks",
 		"mutation",
 		"mutationObserver",
 		"observer",
-		"SPA"
+		"SPA",
+		"web component"
 	],
 	"license": "LGPL-3.0-or-later",
 	"module": "./build.js",
@@ -36,5 +37,5 @@
 		"prepare": "prepare-module"
 	},
 	"types": "./build.d.ts",
-	"version": "0.0.11"
+	"version": "0.0.12"
 }
