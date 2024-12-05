@@ -1,7 +1,8 @@
 [![view on npm](https://badgen.net/npm/v/@itrocks/build)](https://www.npmjs.org/package/@itrocks/build)
 [![npm module downloads](https://badgen.net/npm/dt/@itrocks/build)](https://www.npmjs.org/package/@itrocks/build)
-[![GitHub repo dependents](https://badgen.net/github/dependents-repo/itrocks-ts/build)](https://github.com/itrocks-ts/build/network/dependents?dependent_type=REPOSITORY)
-[![GitHub package dependents](https://badgen.net/github/dependents-pkg/itrocks-ts/build)](https://github.com/itrocks-ts/build/network/dependents?dependent_type=PACKAGE)
+[![GitHub repo dependents](https://badgen.net/github/dependents-repo/itrocks-ts/build?label=dependents)](https://github.com/itrocks-ts/build/network/dependents?dependent_type=REPOSITORY)
+[![Report issues on GitHub](https://badgen.net/github/open-issues/itrocks-ts/build?icon=github)](https://github.com/itrocks-ts/build/issues)
+[![Get support on Discord](https://badgen.net/discord/members/kbMjUq5F?icon=discord)](https://discord.gg/kbMjUq5F)
 
 # build
 
