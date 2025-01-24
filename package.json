@@ -18,9 +18,11 @@
 		"build.d.ts",
 		"build.js"
 	],
+	"homepage": "https://it.rocks",
 	"keywords": [
 		"dom",
 		"event",
+		"front-end",
 		"it.rocks",
 		"mutation",
 		"mutationObserver",
@@ -37,5 +39,5 @@
 		"prepare": "prepare-module"
 	},
 	"types": "./build.d.ts",
-	"version": "0.0.19"
+	"version": "0.0.20"
 }
