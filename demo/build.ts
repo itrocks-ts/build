@@ -1,4 +1,4 @@
-import build from '../src/build.js'
+import { build } from '../src/build.js'
 
 build('main article #div #active', active => active.setAttribute('title', 'Title dynamically added'))
 

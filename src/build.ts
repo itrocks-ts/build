@@ -82,7 +82,6 @@ export type BuildEvent<E extends Element, V extends BuildEventCall | BuildEventT
 	selector?: string | string[]
 }
 
-export default build
 export function build<E extends Element>(callback: BuildElementCallback<E>): void
 export function build<E extends Element, V extends BuildEventCall | BuildEventType>(event: BuildEvent<E, V>): void
 export function build<E extends Element>(selector: string | string[], callback: BuildElementCallback<E>): void
