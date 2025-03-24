@@ -20,7 +20,7 @@ npm i @itrocks/build
 To execute a function each time a new element is added
 to the [DOM](https://developer.mozilla.org/docs/Glossary/DOM):
 ```ts
-import build from './node_modules/@itrocks/build/build.js'
+import { build } from './node_modules/@itrocks/build/build.js'
 build<HTMLAnchorElement>('a', anchor => console.log('DOM + anchor', anchor))
 ```
 This will display "DOM + anchor" in your console for every anchor already present in the DOM.
