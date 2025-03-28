@@ -38,9 +38,8 @@
 		"url": "git+https://github.com/itrocks-ts/build.git"
 	},
 	"scripts": {
-		"build": "tsc",
-		"prepare": "prepare-module"
+		"build": "tsc && ../prepare-module/prepare-module.js"
 	},
 	"types": "./build.d.ts",
-	"version": "0.0.23"
+	"version": "0.0.24"
 }
