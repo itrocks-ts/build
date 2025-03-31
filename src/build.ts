@@ -106,10 +106,10 @@ export function build<E extends Element, V extends BuildEventCall | BuildEventTy
 	else if ((typeof event === 'string') || Array.isArray(event)) {
 		event = (callback ? { callback, type, selector: event } : { callback: type, selector: event }) as BuildEvent<E, V>
 	}
-	if (!event.args)     event.args     = []
-	if (!event.priority) event.priority = 1000
-	if (!event.selector) event.selector = ALWAYS
-	if (!event.type)     event.type     = CALL as V
+	event.args     ??= []
+	event.priority ??= 1000
+	event.selector ??= ALWAYS
+	event.type     ??= CALL as V
 
 	event.priority = (event.priority * 1000000) + callbacks.length
 	event.selector = (typeof event.selector === 'string') ? [event.selector] : chainedSelectors(event.selector)

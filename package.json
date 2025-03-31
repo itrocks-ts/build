@@ -41,5 +41,5 @@
 		"build": "tsc && ../prepare-module/prepare-module.js"
 	},
 	"types": "./build.d.ts",
-	"version": "0.0.24"
+	"version": "0.0.26"
 }
