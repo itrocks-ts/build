@@ -10,7 +10,7 @@
 	"devDependencies": {
 		"@itrocks/prepare-module": "latest",
 		"@types/node": "^22.9",
-		"typescript": "5.6"
+		"typescript": "~5.8"
 	},
 	"files": [
 		"LICENSE",
@@ -41,5 +41,5 @@
 		"build": "tsc && ../prepare-module/prepare-module.js"
 	},
 	"types": "./build.d.ts",
-	"version": "0.0.26"
+	"version": "0.0.27"
 }
