@@ -9,8 +9,8 @@
 	"description": "Permanently apply javascript modifiers to your dynamic DOM",
 	"devDependencies": {
 		"@itrocks/prepare-module": "latest",
-		"@types/node": "^22.9",
-		"typescript": "~5.8"
+		"@types/node": "^24.10",
+		"typescript": "~5.9"
 	},
 	"files": [
 		"LICENSE",
@@ -41,5 +41,5 @@
 		"build": "tsc && ../prepare-module/prepare-module.js"
 	},
 	"types": "./build.d.ts",
-	"version": "0.0.27"
+	"version": "0.0.28"
 }
